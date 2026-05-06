@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Generator</title>
+    <link rel="shortcut icon" href="favicon.svg" type="image/svg+xml">
+    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@3.0.2/dist/iconify-icon.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="light">
+
+    <main class="container">
+
+        <div class="colorGenerate">
+            <div class="top">
+                <button class="toggleTheme">
+                    
+                    
+                </button>
+                <h1 class="title">Color</h1>
+                <button class="historicBtn">
+                    <iconify-icon icon="material-symbols:history"></iconify-icon>
+                </button>
+            </div>
+            <section class="color_card">
+                <article class="card">
+                    <div class="box-color"></div>
+                    <div class="copy">
+                        <input type="text" class="copy-color" readonly>
+                        <button class="copy-btn">
+                            <iconify-icon icon="material-symbols:content-copy"></iconify-icon>
+                        </button>
+                    </div>
+                </article>
+                <article class="card">
+                    <div class="box-color"></div>
+                    <div class="copy">
+                        <input type="text" class="copy-color" readonly>
+                        <button class="copy-btn">
+                            <iconify-icon icon="material-symbols:content-copy"></iconify-icon>
+                        </button>
+                    </div>
+                </article>
+                <article class="card">
+                    <div class="box-color"></div>
+                    <div class="copy">
+                        <input type="text" class="copy-color" readonly>
+                        <button class="copy-btn">
+                            <iconify-icon icon="material-symbols:content-copy"></iconify-icon>
+                        </button>
+                    </div>
+                </article>
+                <article class="card">
+                    <div class="box-color"></div>
+                    <div class="copy">
+                        <input type="text" class="copy-color" readonly>
+                        <button class="copy-btn">
+                            <iconify-icon icon="material-symbols:content-copy"></iconify-icon>
+                        </button>
+                    </div>
+                </article>
+            </section>
+            <button class="generate">
+                Generate
+                <iconify-icon icon="oui:generate"></iconify-icon>
+            </button>
+        </div>
+
+        <div class="historic">
+            <button class="closeHistoric">
+                <iconify-icon icon="formkit:arrowleft"></iconify-icon>
+            </button>
+            <h1 class="title" style="margin-bottom: 20px;">Historic</h1>
+            <ul class="lists color_card">
+                <li class="card-historic">
+                    <div class="box-color-historic"></div>
+                    <div class="copy-historic">
+                        <input type="text" class="copy-color-historic" readonly>
+                        <button class="copy-btn">
+                            <iconify-icon icon="material-symbols:content-copy"></iconify-icon>
+                        </button>
+                    </div>
+                </li>
+                <li class="card-historic">
+                    <div class="box-color-historic"></div>
+                    <div class="copy-historic">
+                        <input type="text" class="copy-color-historic" readonly>
+                        <button class="copy-btn">
+                            <iconify-icon icon="material-symbols:content-copy"></iconify-icon>
+                        </button>
+                    </div>
+                </li>
+                <li class="card-historic">
+                    <div class="box-color-historic"></div>
+                    <div class="copy-historic">
+                        <input type="text" class="copy-color-historic" readonly>
+                        <button class="copy-btn">
+                            <iconify-icon icon="material-symbols:content-copy"></iconify-icon>
+                        </button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
