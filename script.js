@@ -148,7 +148,6 @@ cards.forEach((card, index) => {
             uploadColorSave();
             save_historic();
         }
-        console.log(newCard);
 
 
     });
@@ -192,10 +191,30 @@ const uploadColorSave = () => {
             </div>
         `;
 
-        li.querySelector('.copy-btn').addEventListener('click', () => {
+        li.querySelector('.copy-btn').addEventListener('click', (e) => {
+            e.stopPropagation();
             navigator.clipboard.writeText(item.color);
 
-            console.log(`Copied: ${item.color}`);
+            info.innerHTML = `
+                    <p>Couleur: <b>${item.color}</b> copié avec succes</p>
+                    <button class="closeInfo">
+                        <iconify-icon icon="material-symbols:close"></iconify-icon>
+                    </button
+                `;
+            info.classList.add('success');
+            info.classList.remove('danger');
+            info.classList.add('show');
+            info.classList.remove('hide');
+            const closeInfo = info.querySelector('.closeInfo');
+            closeInfo.addEventListener('click', () => {
+                info.classList.add('hide');
+                info.classList.remove('show');
+            });
+
+            setTimeout(() => {
+                info.classList.add('hide');
+                info.classList.remove('show');
+            }, 5000);
         });
 
         li.addEventListener('click', () => {
@@ -203,10 +222,10 @@ const uploadColorSave = () => {
             infos.innerHTML = `
                 <p>Voulez-vous supprimer le code couleur: <b>${newCard}</b> de votre historique ?</p>
 
-        <div class="alert">
-            <button class="confirm">Confirmer</button>
-            <button class="cancel">Annuler</button>
-        </div>
+                <div class="alert">
+                    <button class="confirm">Confirmer</button>
+                    <button class="cancel">Annuler</button>
+                </div>
             `;
             infos.classList.add('danger');
             infos.classList.remove('success');
@@ -219,36 +238,20 @@ const uploadColorSave = () => {
             });
             const confirmBtn = infos.querySelector('.confirm');
 
-            // Use a fresh listener that cleans itself up
             confirmBtn.addEventListener('click', () => {
-                // 1. Filter the array
-                // Note: Ensuring we compare strings to strings
                 const targetColor = typeof newCard === 'object' ? newCard.color : newCard;
                 historicStorage = historicStorage.filter(item => item.color !== targetColor);
 
-                // 2. Update System
-                uploadColorSave(); // Refresh UI
-                save_historic();   // Sync LocalStorage
+                uploadColorSave();
+                save_historic();
 
-                // 3. UI Feedback
                 infos.classList.replace('show', 'hide');
-            }, { once: true }); // Crucial: prevents multiple listeners stacking up
+            }, { once: true });
 
             setTimeout(() => {
                 infos.classList.add('hide');
                 infos.classList.remove('show');
-            }, 5000);
-            console.log(li.querySelector('.copy-color-historic').value);
-
-            // historicStorage.push({
-            //     id: Date.now(),
-            //     color: newCard
-            // });
-
-
-
-            // uploadColorSave();
-            // save_historic();
+            }, 6000);
         });
 
         lists.appendChild(li);
