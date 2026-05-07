@@ -76,7 +76,7 @@ body.dark .colorGenerate .top button {
 
 .color_card {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     gap: 10px;
 }
 
@@ -84,9 +84,11 @@ body.dark .colorGenerate .top button {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    cursor: grab;
 }
 
 .card .box-color, .card-historic .box-color-historic {
+    transition: none;
     width: 100%;
     height: 80px;
     border-radius: 4px;
@@ -172,7 +174,114 @@ body.dark .generate {
     font-size: 20px;
 }
 
-.historic {
+.historic, .colorGenerate {
     display: none;
     position: relative;
+}
+.historic.active, .colorGenerate.active {
+    display: block;
+}
+
+.info {
+    position: absolute;
+    width: 100%;
+    max-width: 400px;
+    background: #fff;
+    border-radius: 5px;
+    padding: 20px 10px;
+    border-left: 10px solid #000;
+    color: #000;
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.closeInfo {
+    border: none;
+    border-radius: 4px;
+    display: flex;
+    padding: 5px;
+    cursor: pointer;
+    font-size: 22px;
+}
+
+.info.danger {
+    color: #FA043C;
+    border-color: #FA043C;
+}
+
+.info.success {
+    color: #24C549;
+    border-color: #24C549;
+}
+
+.info.show {
+    top: 10px;
+    opacity: 1;
+    z-index: 99;
+    transform: translateY(10px);
+}
+
+.info.hide {
+    top: -100%;
+    opacity: 0;
+    z-index: -99;
+    transform: translateY(-100%);
+}
+
+.infos {
+    position: absolute;
+    width: 100%;
+    max-width: 400px;
+    background: #fff;
+    border-radius: 5px;
+    padding: 20px 10px;
+    border-left: 10px solid #000;
+    color: #000;
+    flex-direction: column;
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.infos div {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: end;
+}
+
+.infos div button {
+    border: none;
+    border-radius: 4px;
+    display: flex;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 18px;
+}
+.infos div button.confirm {
+    background: #24C549;
+    color: #fff;
+}
+.infos div button.cancel {
+    background: #FA043C;
+    color: #fff;
+}
+
+
+.infos.show {
+    top: 10px;
+    opacity: 1;
+    z-index: 99;
+    transform: translateY(10px);
+}
+
+.infos.hide {
+    top: -100%;
+    opacity: 0;
+    z-index: -99;
+    transform: translateY(-100%);
 }
